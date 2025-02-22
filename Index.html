@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaskaran Tamber - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+  // Function to check if an element is in the viewport
+  function isElementInViewport(element) {
+    var rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  // Function to add fade-in class
+  function addFadeIn(element) {
+    if (isElementInViewport(element)) {
+      element.classList.add('fade-in');
+    }
+  }
+
+  // Add fade-in class to elements with the class 'fade-in-element' on scroll
+  var elements = document.querySelectorAll('.hero, .portfolio-section, .contact-section');
+  elements.forEach(function(element) {
+    element.classList.add('fade-in-element'); // Add a class so the JavaScript can select the elements
+    addFadeIn(element); // Check if the element is already in the viewport on page load
+  });
+
+  window.addEventListener('scroll', function() {
+    elements.forEach(function(element) {
+      addFadeIn(element);
+    });
+  });
+
+    // Hamburger Menu
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector("nav ul");
+
+    if (hamburger) {
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
+    }
+
+    // Hero Image animation
+    const heroImage = document.querySelector(".hero-image img");
+    let scale = 1;
+    const intervalId = setInterval(() => {
+        scale = scale === 1 ? 1.05 : 1;
+        if (heroImage) {
+            heroImage.style.transform = `scale(${scale})`;
+            heroImage.style.transition = 'transform 3s ease-in-out';
+        } else {
+            clearInterval(intervalId);
+        }
+    }, 2000); // Change scale every 2 seconds
+});
+
+    </script>
+    <div class="container">
+        <header>
+            <nav>
+                <h1>Jaskaran</h1>
+                <button class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#my-journey">My Journey</a></li>
+                    <li><a href="#book-design">My Book Design</a></li>
+                    <li><a href="#wall-posters">Wall Posters</a></li>
+                    <li><a href="#web-design">Web Design</a></li>
+                    <li><a href="#contact" class="cta-button">Want To Work?</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="hero">
+            <div class="hero-content">
+                <h1 class = "h1-1">I'm</h1>
+                <h1 class = "h1-2">Jaskaran</h1>
+                <p>Web Designer | Freelancer | Graphic Designer</p>
+            </div>
+            <div class="hero-image">
+                <img src="./assets/hero-image.png" alt="Hero Image">
+            </div>            
+            <img class="blue-line" src="./assets/blue-line.png" alt="Blue Line">
+        </section>
+
+        <section id="my-journey" class="portfolio-section">
+            <div class="journey-content">
+                <div class="journey-container">
+                    <h2>My Journey</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="book-design" class="portfolio-section">
+            <div class="portfolio-content">
+                <div class="image-container">
+                    <a href="./assets/book-design.jpg" target="_blank">
+                        <img src="./assets/book-design.jpg" alt="Book Design">
+                    </a>
+                </div>
+                <div class="text-container">
+                    <h2>My Book Design</h2>
+                    <p>Performing excellent in my freelance job, I got an opportunity to work with an entrepreneur, who want to print a tracing book for children in Canada. I worked with her to make this dream come to life.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="wall-posters" class="portfolio-section">
+            <div class="portfolio-content">
+                <div class="image-container">
+                    <a href="./assets/wall-poster.jpg" target="_blank">
+                        <img src="./assets/wall-poster.jpg" alt="Wall Poster Design">
+                    </a>
+                </div>
+                <div class="text-container">
+                    <h2>My First Design Ever</h2>
+                    <p>I Started professional design career from a freelancing platform 'fiverr'. And I designed the first design for a client who wanted to make these amazing wall printed posters to frame them.</p>
+                </div>
+                                
+            </div>
+        </section>
+
+        <section id="web-design" class="portfolio-section">
+            <div class="portfolio-content">
+                <div class="image-container">
+                    <a href="./assets/web-design.jpg" target="_blank">
+                        <img src="./assets/web-design.jpg" alt="Web Design">
+                    </a>
+                </div>
+                <div class="text-container">
+                    <h2>Web Design and Development</h2>
+                    <p>designed a responsive website with Figma and developed using an powerful tool of the time 'Web flow', I am very excited to work with you and help you reach more clients worldwide</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Want To Work?</h2>
+            <p>If you need a modern and powerful website for your business, startup or personally, I am available for work. You can email me directly at</p>
+            <a href="mailto:jaskarantamber+studio@gmail.com">jaskarantamber+studio@gmail.com</a>
+        </section>
+
+        <footer>
+            <p>&copy; all rights reserved - Jaskaran</p>
+        </footer>
+    </div>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
+    </script>
+</body>
+</html>
